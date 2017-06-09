@@ -9,6 +9,7 @@ body {
     color: #777;
     background: #f9f9f9;
     font-family: 'Open Sans',sans-serif;
+    background: #fcfcfc url(../img/light_grunge.jpg);
 }
 
 .header{
@@ -223,7 +224,7 @@ body {
     position: relative;
     min-height: 800px;
     padding-top: 45px;
-    margin-left: 194px;
+    /* margin-left: 194px; */
 }
 
 .paddin-md{
