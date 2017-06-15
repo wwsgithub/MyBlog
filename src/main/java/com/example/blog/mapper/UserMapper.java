@@ -1,9 +1,9 @@
-package com.example.mapper;
+package com.example.blog.mapper;
 
 import java.util.ArrayList;
 import org.apache.ibatis.annotations.Select;
 
-import com.example.entity.User;
+import com.example.blog.entity.User;
 
 /**
  * 

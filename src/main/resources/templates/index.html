@@ -89,9 +89,11 @@
 						<span class="line"></span>
 					</h3>
 					<!-- content -->
-					<div>
-						<span>姓名：</span>
-						<span>王万松</span>
+					<div th:each="blog,iterStat:${blogs}">
+						<span th:text="${blog.title}"></span>
+						<span th:text="${blog.content}"></span>
+						<span th:text="${blog.sendDate}"></span>
+						<span th:text="${blog.id}"></span>
 					</div>
 				</div>
 			</div>
