@@ -5,7 +5,7 @@ var menuBtn = new Vue({
 		show: true,
 		test: function(){
 			aside.show.display = this.show?"none":""
-			main.left.left = this.show?"50px":"194px"
+			main.left.left = this.show?"10%":"15%"
 			this.show = !this.show
 		}
 	}
@@ -20,11 +20,4 @@ var aside = new Vue({
 	}
 })
 
-var main = new Vue({
-	el: "#main-container",
-	data: {
-		left:{
-			left: "194px"
-		}
-	}
-})
+

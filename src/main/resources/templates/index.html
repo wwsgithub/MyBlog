@@ -89,16 +89,51 @@
 						<span class="line"></span>
 					</h3>
 					<!-- content -->
-					<div th:each="blog,iterStat:${blogs}">
-						<span th:text="${blog.title}"></span>
-						<span th:text="${blog.content}"></span>
-						<span th:text="${blog.sendDate}"></span>
-						<span th:text="${blog.id}"></span>
+					<div>
+						<div v-for="blog in blogs">
+						 	<div class="article_title">
+								<div class="title">
+									<span>{{blog.title}}</span>
+								</div>
+								<div>
+									<span>{{blog.sendDate}}</span>
+								</div>
+							</div>
+							<div class="article_content">
+								<P>{{blog.content}}</P>							
+							</div>
+						</div>
 					</div>
+					
+					<!-- <div id="blogs" th:each="blog,iterStat:${blogs}">
+						<div th:id="'title_'+${blog.id}" class="article_title">
+							<div class="title">
+								<span th:text="${blog.title}"></span>
+							</div>
+							<div>
+								<span th:text="${blog.sendDate}"></span>
+							</div>
+						</div>
+						<div class="article_content">
+							<P th:text="${blog.content}"></P>							
+						</div>
+					</div> -->
 				</div>
 			</div>
 		</div>
 		<script type="text/javascript" th:src="@{/javascript/vue.js}"></script>
 		<script type="text/javascript" th:src="@{/javascript/index.js}"></script>
+		<script th:inline="javascript">
+			var blogs = /*[[${blogs}]]*/;
+			var main = new Vue({
+				el: "#main-container",
+				data: {
+					left:{
+						left: "15%"
+					},
+					blogs: blogs
+				}
+			})
+		</script>
 	</body>
 </html>
