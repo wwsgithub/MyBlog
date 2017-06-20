@@ -1,6 +1,6 @@
 package com.example.blog.entity;
 
-import java.sql.Date;
+import java.util.Date;
 
 /**
  * 日志实体类
@@ -13,7 +13,14 @@ public class BlogEntity {
 	private String title;
 	private String content;
 	private Date sendDate;
+	private String showDate;
 	
+	public String getShowDate() {
+		return showDate;
+	}
+	public void setShowDate(String showDate) {
+		this.showDate = showDate;
+	}
 	public Integer getId() {
 		return id;
 	}

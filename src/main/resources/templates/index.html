@@ -90,16 +90,16 @@
 					</h3>
 					<!-- content -->
 					<div>
-						<div v-for="blog in blogs">
-						 	<div class="article_title">
+						<div v-for="(blog,$index) in blogs">
+						 	<div class="article_title" v-on:click="test($index)">
 								<div class="title">
 									<span>{{blog.title}}</span>
 								</div>
 								<div>
-									<span>{{blog.sendDate}}</span>
+									<span>{{blog.showDate}}</span>
 								</div>
 							</div>
-							<div class="article_content">
+							<div class="article_content" v-show="$index == i">
 								<P>{{blog.content}}</P>							
 							</div>
 						</div>
@@ -131,7 +131,19 @@
 					left:{
 						left: "15%"
 					},
-					blogs: blogs
+					blogs: blogs,
+					show: {
+						display: "none"
+					},
+					i: -1
+				},
+				methods:{
+					isShow: false,
+					test: function(index){
+						console.log(index)
+						this.i = this.isShow?index:-1
+						this.isShow = !this.isShow
+					}
 				}
 			})
 		</script>
