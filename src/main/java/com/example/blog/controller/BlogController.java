@@ -32,7 +32,6 @@ public class BlogController {
 //		HashMap<String, Object> map = new HashMap<String, Object>();
 		ArrayList<BlogEntity> blogs = blogService.getAll();
 		for(BlogEntity blog : blogs){
-			System.out.println(blog.getSendDate());
 			SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-dd HH:mm:SS");
 			blog.setShowDate(sdf.format(blog.getSendDate()));;
 		}
