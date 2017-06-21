@@ -53,25 +53,25 @@
 					<div class="main-menu">
 						<ul>
 							<li>
-								<a href="#">
+								<a href="#" v-on:click="page">
 									<span class="menu-icon">
 										<i class="fa-lg"></i> 
 									</span>
 									<span class="text">
 										Page
 									</span>
-									<span class="menu-hover"></span>
+									<span v-bind:class="pageHover"></span>
 								</a>
 							</li>
 							<li class="active openable">
-								<a href="#">
+								<a href="#" v-on:click="about">
 									<span class="menu-icon">
 										<i class="fa-lg"></i> 
 									</span>
 									<span class="text">
 										About
 									</span>
-									<span class="menu-hover"></span>
+									<span v-bind:class="aboutHover"></span>
 								</a>
 							</li>
 						</ul>
@@ -80,7 +80,11 @@
 				<div>waiting...</div>
 			</div>
 		</aside>
-
+		
+		<div id="intro" class="intro" v-bind:style="intro">
+			my introduction
+		</div>
+		
 		<div id="main-container" v-bind:style="left">
 			<div class="padding-md">
 				<div class="row col-md-11">
@@ -129,7 +133,8 @@
 				el: "#main-container",
 				data: {
 					left:{
-						left: "15%"
+						left: "15%",
+						display: ""
 					},
 					blogs: blogs,
 					show: {

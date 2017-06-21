@@ -183,6 +183,7 @@ body {
     text-shadow: 0 1px 1px rgba(0,0,0,.05);
     transition: color .5s ease,background .5s ease;
     -webkit-transition: color .5s ease,background .5s ease;
+    text-decoration: none;
 }
 
 .fa-lg{
@@ -220,12 +221,18 @@ body {
     opacity: 1;
 }
 
-#main-container {
+#main-container{
     position: relative;
     min-height: 800px;
     padding-top: 45px;
     width: 85%;
     /* margin-left: 194px; */
+}
+
+.intro{
+	position: relative;
+	padding-top: 45px;
+    width: 85%;
 }
 
 .paddin-md{
