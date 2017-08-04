@@ -1,6 +1,7 @@
 package com.example.blog.service.impl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,6 +23,10 @@ public class BlogServiceImpl implements BlogService{
 	
 	public ArrayList<BlogEntity> getAll() {
 		return blogMapper.getAll();
+	}
+
+	public ArrayList<BlogEntity> getPage(HashMap<String, Integer> map) {
+		return blogMapper.getPage(map);
 	}
 
 }

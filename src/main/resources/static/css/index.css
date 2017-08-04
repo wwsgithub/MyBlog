@@ -287,3 +287,14 @@ P{
 	cursor: pointer;
 	color: #ee5909;
 }
+
+.page:hover{
+	cursor: pointer;
+}
+
+.page{
+    width: 20px;
+    height: 20px;
+    border: 1px solid #b6b6b6;
+    margin-left: 5px;
+}

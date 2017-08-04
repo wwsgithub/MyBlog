@@ -77,7 +77,7 @@
 						</ul>
 					</div>
 				</div>
-				<div>waiting...</div>
+				<div>&nbsp;waiting...</div>
 			</div>
 		</aside>
 		
@@ -109,6 +109,11 @@
 						</div>
 					</div>
 					
+					<div style="display: flex;margin-top: 8px;text-align: center;">
+						<div class="page" v-on:click="front">&lt;</div>
+						<div class="page">{{page}}</div>
+						<div class="page" v-on:click="next">&gt;</div>
+					</div>
 					<!-- <div id="blogs" th:each="blog,iterStat:${blogs}">
 						<div th:id="'title_'+${blog.id}" class="article_title">
 							<div class="title">
@@ -127,8 +132,11 @@
 		</div>
 		<script type="text/javascript" th:src="@{/javascript/vue.js}"></script>
 		<script type="text/javascript" th:src="@{/javascript/index.js}"></script>
+		<script src="https://cdn.jsdelivr.net/vue.resource/1.0.3/vue-resource.min.js"></script>
 		<script th:inline="javascript">
 			var blogs = /*[[${blogs}]]*/;
+			var page = /*[[${page}]]*/;
+			
 			var main = new Vue({
 				el: "#main-container",
 				data: {
@@ -137,6 +145,7 @@
 						display: ""
 					},
 					blogs: blogs,
+					page: page,
 					show: {
 						display: "none"
 					},
@@ -154,6 +163,37 @@
 						let top = document.body.scrollTop
 						head.headShow.display = top>this.scTop?"none":""
 						this.scTop = top
+					},
+					next:function(){
+						var that = this
+						this.$http.get('/getBlogs?index='+(that.page+1))
+					    .then(function(res) {
+					    	console.log(res)
+					    	if(res.body.data.length>0){
+					    		that.blogs = res.body.data
+					    		that.page = page + 1
+					    	}else{
+					    		alert("暂无数据");
+					    	}
+					    })
+					},
+					front: function(){
+						var that = this
+						console.log(that.page)
+						if(that.page = 1){
+							alert("当前已是第一页");
+						}else{
+							this.$http.get('/getBlogs?index='+(that.page-1))
+						    .then(function(res) {
+						    	console.log(res)
+						    	if(res.body.data.length>0){
+						    		that.blogs = res.body.data
+						    		that.page = page - 1
+						    	}else{
+						    		alert("暂无数据");
+						    	}
+						    })
+						}
 					}
 				},
 				mounted(){

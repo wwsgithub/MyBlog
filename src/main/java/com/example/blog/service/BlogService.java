@@ -1,6 +1,7 @@
 package com.example.blog.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import com.example.blog.entity.BlogEntity;
 
@@ -16,4 +17,6 @@ public interface BlogService {
 	 * @return
 	 */
 	public ArrayList<BlogEntity> getAll();
+	
+	public ArrayList<BlogEntity> getPage(HashMap<String, Integer> map);
 }
